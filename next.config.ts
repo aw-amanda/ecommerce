@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const isProd = process.env.NODE_ENV === "production";
-const repoName = "ecommerce"; // Replace with your actual GitHub repository name
+const repoName = "ecommerce";
 
 const nextConfig: NextConfig = {
   output: "export",
