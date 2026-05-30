@@ -5,7 +5,7 @@ import { useCartStore } from "@/store/cart-store"
 import { useEffect, useRef, Suspense } from "react"
 import { useSearchParams } from "next/navigation"
 import Image from "next/image"
-import successBG from "@/public/mint-macaroon-bowl.jpg"
+import successBG from "../../../public/mint-macaroon-bowl.jpg"
 
 function SuccessContent() {
   const { clearCart } = useCartStore()

@@ -5,6 +5,7 @@ import { useEffect, useRef, useState, useCallback, useMemo } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { mockCheckoutAction } from "./mock-checkout-action"
+import { getImagePath } from "@/lib/path";
 
 interface CartItem {
   id: string
@@ -80,7 +81,7 @@ const CartItemComponent = ({ item, onIncrement, onDecrement }: {
       {item.image && (
         <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden shrink-0 bg-white/10">
           <Image
-            src={item.image}
+            src={getImagePath("/item.image")}
             alt={item.name}
             fill
             className="object-cover"
