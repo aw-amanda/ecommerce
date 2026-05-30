@@ -51,16 +51,15 @@ export default async function ProductsPage() {
             <div className="text-center mb-6">
                 <h2 
                     id="main-products-heading"
-                    className="text-cyan-200 text-5xl md:text-7xl lg:text-9xl my-6 sm:my-8 font-haviland-cursive"
+                    className="text-cyan-200 text-shadow-lg text-7xl md:text-9xl my-6 sm:my-8 font-haviland-cursive"
                     tabIndex={-1}
                 >
                     Our Macaroons
                 </h2>
             </div>
 
-            {/* SEO-friendly description */}
-            <div className="max-w-3xl mx-auto text-center mb-8 px-4">
-                <p className="text-cyan-100/90 text-lg font-body">
+            <div className="max-w-3xl mx-auto text-center mb-8 p-4 bg-transparent backdrop-blur-3xl rounded-2xl">
+                <p className="text-cyan-50 text-md md:text-lg">
                     Each week, our pastry team creates thousands of perfect French macaroons in our Your City kitchen. 
                     Every macaroon starts with premium almond flour, organic egg whites, and real butter—never artificial 
                     flavors or preservatives. Browse our current flavor collection below. Note that seasonal specialties 
@@ -110,7 +109,7 @@ export default async function ProductsPage() {
                 }}
             />
 
-            {/* FAQ Schema for products */}
+            {/* FAQ Schema */}
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{

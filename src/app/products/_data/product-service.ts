@@ -14,9 +14,9 @@ export interface Product {
   featured: boolean
 }
 
-// Mock product service that replaces Stripe
+// Mock product service 
 export async function getProducts(): Promise<Product[]> {
-  // Simulate network delay (optional, but realistic)
+  // Simulate network delay
   await new Promise(resolve => setTimeout(resolve, 100))
   return productsData.products
 }

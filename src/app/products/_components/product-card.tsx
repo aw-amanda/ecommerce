@@ -11,7 +11,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
                         `$${product.price.toFixed(2)}` : 
                         'Price not available'
 
-    // Static class names to prevent hydration mismatches
+    // prevent hydration mismatch
     const cardClasses = "h-full flex flex-col rounded-2xl overflow-hidden bg-linear-to-br from-gray-100/75 to-gray-300/75 backdrop-blur-xl transition-all duration-300 hover:shadow-xl"
     const contentClasses = "bg-transparent backdrop-blur-2xl border rounded-xl p-3 sm:p-4 flex-1 flex flex-col justify-between font-body text-black"
     const buttonClasses = "inline-block w-full py-2 px-4 bg-black/40 rounded-xl cursor-pointer text-gray-50 text-sm sm:text-md font-body font-light text-center group-hover:bg-cyan-600/40 transition-all duration-300"
@@ -40,7 +40,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
                     <div className="p-3 sm:p-4 flex-1 flex flex-col">
                         <h3 
                             id={`product-${product.id}-title`}
-                            className="mb-2 text-xl md:text-2xl text-center text-shadow-lg font-light text-cyan-200 line-clamp-2"
+                            className="mb-2 text-xl md:text-2xl text-center text-shadow-lg font-light text-gray-700 line-clamp-2"
                         >
                             {product.name}
                         </h3>
@@ -52,7 +52,6 @@ export const ProductCard = ({ product }: ProductCardProps) => {
                                 {product.description}
                             </p>
                             
-                            {/* Flavor Notes */}
                             {product.flavorNotes && product.flavorNotes.length > 0 && (
                                 <div className="mt-2 flex flex-wrap gap-1">
                                     {product.flavorNotes.slice(0, 2).map((note, idx) => (

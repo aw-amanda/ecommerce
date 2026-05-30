@@ -47,7 +47,7 @@ export function ContactForm() {
     setIsSubmitting(true)
     setStatus(null)
 
-    // Mock API call - replace with real endpoint later
+    // Mock API call
     try {
       await new Promise(resolve => setTimeout(resolve, 1000))
       console.log("Form submitted:", formData)

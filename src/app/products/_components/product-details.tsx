@@ -26,7 +26,7 @@ export const ProductDetail = ({ product }: ProductDetailProps) => {
         addItem({
             id: product.id,
             name: product.name,
-            price: Math.round(product.price * 100), // Convert to cents for consistency
+            price: product.price, // Store in dollars directly
             image: product.images ? product.images[0] : null,
             quantity: 1,
         })
@@ -57,11 +57,11 @@ export const ProductDetail = ({ product }: ProductDetailProps) => {
         <>
             <nav aria-label="Breadcrumb" className="container mx-auto px-4 py-4">
                 <ol className="flex flex-wrap items-center gap-2 text-sm text-gray-600">
-                    <li><Link href="/" className="hover:text-cyan-400">Home</Link></li>
+                    <li><Link href="/" className="hover:text-cyan-400 transition-colors">Home</Link></li>
                     <li aria-hidden="true">/</li>
-                    <li><Link href="/products" className="hover:text-cyan-400">Products</Link></li>
+                    <li><Link href="/products" className="hover:text-cyan-400 transition-colors">Products</Link></li>
                     <li aria-hidden="true">/</li>
-                    <li className="text-cyan-400 font-semibold" aria-current="page">{product.name}</li>
+                    <li className="text-cyan-200 text-shadow-md font-semibold" aria-current="page">{product.name}</li>
                 </ol>
             </nav>
 
@@ -84,21 +84,20 @@ export const ProductDetail = ({ product }: ProductDetailProps) => {
                         </div>
                     )}
 
-                    <div className="w-full lg:w-1/2">
-                        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 font-display text-cyan-500">
+                    <div className="w-full lg:w-1/2 p-2 md:p-3 bg-transparent backdrop-blur-2xl rounded-2xl">
+                        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 font-display text-cyan-200 text-shadow-lg">
                             {product.name}
                         </h1>
                         
                         {product.description && (
-                            <p className="text-base sm:text-lg text-gray-700 font-body leading-relaxed">
+                            <p className="text-base sm:text-lg text-gray-100 font-body leading-relaxed">
                                 {product.description}
                             </p>
                         )}
 
-                        {/* Flavor Notes */}
                         {product.flavorNotes && product.flavorNotes.length > 0 && (
                             <div className="mt-4">
-                                <h2 className="text-sm font-semibold text-gray-600 mb-2">Flavor Profile:</h2>
+                                <h2 className="text-sm font-semibold text-gray-300 mb-2">Flavor Profile:</h2>
                                 <div className="flex flex-wrap gap-2">
                                     {product.flavorNotes.map((note, idx) => (
                                         <span key={idx} className="bg-cyan-100/50 px-3 py-1 rounded-full text-sm">
@@ -109,7 +108,6 @@ export const ProductDetail = ({ product }: ProductDetailProps) => {
                             </div>
                         )}
 
-                        {/* Dietary Info */}
                         {product.dietary && product.dietary.length > 0 && (
                             <div className="mt-4">
                                 <div className="flex flex-wrap gap-2">
@@ -132,7 +130,7 @@ export const ProductDetail = ({ product }: ProductDetailProps) => {
                         </div>
 
                         <div className="mt-6">
-                            <label id="quantity-label" className="block text-sm font-medium text-gray-700 mb-2">
+                            <label id="quantity-label" className="block text-sm font-medium text-gray-100 mb-2">
                                 Quantity
                             </label>
                             <div 
@@ -143,7 +141,7 @@ export const ProductDetail = ({ product }: ProductDetailProps) => {
                                     onClick={handleRemoveItem}
                                     className="w-10 h-10 rounded-full bg-gray-200 hover:bg-gray-300 
                                              text-gray-700 text-xl font-bold transition-colors duration-200
-                                             focus:outline-none focus:ring-2 focus:ring-cyan-400
+                                             focus:outline-none focus:ring-2 focus:ring-cyan-300
                                              disabled:opacity-50 disabled:cursor-not-allowed"
                                     aria-label={`Decrease quantity of ${product.name}`}
                                     disabled={quantity === 0}
@@ -163,7 +161,7 @@ export const ProductDetail = ({ product }: ProductDetailProps) => {
                                 <button 
                                     ref={addButtonRef}
                                     onClick={handleAddItem}
-                                    className="w-10 h-10 rounded-full bg-cyan-500 hover:bg-cyan-600 
+                                    className="w-10 h-10 rounded-full bg-cyan-300 hover:bg-cyan-600 
                                              text-white text-xl font-bold transition-colors duration-200
                                              focus:outline-none focus:ring-2 focus:ring-cyan-400
                                              disabled:opacity-50 disabled:cursor-not-allowed"
@@ -179,8 +177,8 @@ export const ProductDetail = ({ product }: ProductDetailProps) => {
                             <button 
                                 onClick={handleAddItem}
                                 disabled={isAdding}
-                                className="w-full py-3 px-6 bg-cyan-500 hover:bg-cyan-600 
-                                         text-white font-semibold rounded-xl transition-all duration-200
+                                className="w-full py-3 px-6 bg-cyan-300 hover:bg-cyan-600 
+                                         text-gray-50 text-shadow-md font-semibold rounded-xl transition-all duration-200
                                          focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2
                                          disabled:opacity-50 disabled:cursor-not-allowed"
                                 aria-label={`Add ${product.name} to cart`}

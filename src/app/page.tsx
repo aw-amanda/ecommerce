@@ -2,7 +2,7 @@ import Image from "next/image";
 import heroBG from "../../public/macaroon-stacks.jpg";
 
 // ===============
-// METADATA EXPORT for Next.js App Router
+// METADATA EXPORT
 // ===============
 export const metadata = {
   title: "Macaroon Pâtisserie | Artisanal French Macaroons in Your City",
@@ -22,9 +22,6 @@ export const metadata = {
   },
 };
 
-// ===============
-// INLINE DATA (prevents imports)
-// ===============
 const flavors = [
   "Vanilla Bean",
   "Dark Chocolate Ganache",
@@ -100,22 +97,15 @@ const benefits = [
   "Eco-friendly packaging",
 ];
 
-// ===============
-// SERVER COMPONENT
-// ===============
 export default function Home() {
   return (
     <main 
       id="home"
       className="w-full min-h-screen pt-32 py-2 flex flex-col items-center justify-center"
     >
-      {/* SEO H1 - visually hidden but accessible */}
       <h1 className="sr-only">Macaroon Pâtisserie | Artisanal French Macaroons in Your City</h1>
-      
-      {/* SEO H2 for structure */}
       <h2 className="sr-only">Handcrafted French Macaroons Made Fresh Daily in Your City</h2>
 
-      {/* Hero Background Image */}
       <div 
         className="fixed inset-0 -z-10"
         aria-hidden="true"
@@ -134,10 +124,10 @@ export default function Home() {
       {/* Header Section */}
       <div className="mb-20 p-2 md:p-6 bg-gray-300/30 backdrop-blur-lg border-none rounded-2xl shadow-2xl">
         <header className="flex flex-col items-center text-center p-4">
-          <h2 className="mb-2 font-haviland-cursive text-cyan-200 text-5xl md:text-7xl lg:text-9xl text-shadow-lg">
+          <h2 className="mb-2 font-haviland-cursive text-cyan-200 text-7xl  md:text-9xl text-shadow-lg">
             Macaroon Pâtisserie
           </h2>
-          <p className="text-gray-700 text-xl lg:text-2xl">
+          <p className="text-gray-700 text-lg lg:text-xl">
             Café • Delivery • Catering
           </p>
         </header>

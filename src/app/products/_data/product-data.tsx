@@ -25,7 +25,6 @@ export const ProductData = ({ products }: ProductDataProps) => {
         return () => clearTimeout(timer)
     }, [searchTerm])
 
-    // Filter products based on debounced search term
     const filteredProducts = useMemo(() => {
         const term = debouncedSearchTerm.toLowerCase().trim()
         if (!term) return products

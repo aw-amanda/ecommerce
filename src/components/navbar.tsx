@@ -22,12 +22,10 @@ export const Navbar = () => {
     const pathname = usePathname();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-    // Close mobile menu when route changes
     useEffect(() => {
         setIsMobileMenuOpen(false);
     }, [pathname]);
 
-    // Prevent body scroll when mobile menu is open
     useEffect(() => {
         if (isMobileMenuOpen) {
             document.body.style.overflow = "hidden";
@@ -39,7 +37,6 @@ export const Navbar = () => {
         };
     }, [isMobileMenuOpen]);
 
-    // Pre-compute class names to avoid multiline template strings
     const navClass = "w-full fixed top-0 left-0 z-50 bg-gray-950/50 backdrop-blur-xl";
     const linkClass = "relative text-gray-300 hover:text-cyan-400 transition-colors duration-200 font-body text-base group";
     const activeLinkClass = "relative text-cyan-400 font-semibold transition-colors duration-200 font-body text-base group";
@@ -61,11 +58,11 @@ export const Navbar = () => {
                             >
                                 <div className="relative w-12 h-12 md:w-14 md:h-14 bg-white rounded-full overflow-hidden shadow-md">
                                     <Image 
-                                        src={Logo}
-                                        alt="Macaroon Pâtisserie Logo"
-                                        fill
-                                        className="object-contain p-2"
-                                        priority
+                                        src={Logo} 
+                                        alt="Macaroon Pâtisserie Logo" 
+                                        fill 
+                                        className="object-contain p-2" 
+                                        priority sizes="56px" 
                                     />
                                 </div>
                             </Link>

@@ -4,7 +4,7 @@ import { CartClient } from "./_components/cart-client"
 import { Suspense } from "react"
 
 // ===============
-// METADATA for Next.js App Router
+// METADATA
 // ===============
 export const metadata = {
   title: "Your Cart & Checkout | Macaroon Pâtisserie | Secure Ordering",
@@ -16,7 +16,7 @@ export const metadata = {
     images: [{ url: "/mint-macaroon-bowl.jpg" }],
     type: "website",
   },
-  robots: "noindex, follow", // Cart pages shouldn't be indexed
+  robots: "noindex, follow",
   alternates: {
     canonical: "/cart",
   },
@@ -69,10 +69,10 @@ export default function CartPage() {
 
       {/* Page Header */}
       <div className="text-center mb-8">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-display text-cyan-200 text-shadow-md mb-4">
+        <h1 className="text-7xl md:text-9xl font-haviland-cursive text-cyan-200 text-shadow-lg mb-4 md:mb-8">
           Your Cart
         </h1>
-        <p className="text-cyan-100/80 text-lg max-w-2xl mx-auto px-4">
+        <p className="text-cyan-50 text-lg max-w-2xl mx-auto px-4 text-shadow-lg">
           Review your selection, adjust quantities, and complete your order
         </p>
       </div>

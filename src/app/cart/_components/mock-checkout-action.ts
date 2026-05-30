@@ -38,7 +38,6 @@ function generateOrderId(): string {
   return `ORD-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`
 }
 
-// Mock function to process checkout (replaces Stripe)
 export const mockCheckoutAction = async (orderData: OrderData): Promise<void> => {
   // Validate order data
   if (!orderData.items || orderData.items.length === 0) {
@@ -49,7 +48,7 @@ export const mockCheckoutAction = async (orderData: OrderData): Promise<void> =>
     throw new Error("Shipping address is required")
   }
 
-  // Validate required shipping fields
+  // Validate shipping fields
   const { fullName, email, phone, address, city, state, zipCode } = orderData.shippingAddress
   if (!fullName || !email || !phone || !address || !city || !state || !zipCode) {
     throw new Error("Please fill in all required shipping fields")
@@ -58,7 +57,7 @@ export const mockCheckoutAction = async (orderData: OrderData): Promise<void> =>
   // Simulate API call delay
   await new Promise(resolve => setTimeout(resolve, 1500))
 
-  // Create order record (in a real app, this would save to a database)
+  // Create order record
   const orderId = generateOrderId()
   const order = {
     id: orderId,
@@ -67,13 +66,10 @@ export const mockCheckoutAction = async (orderData: OrderData): Promise<void> =>
     status: "pending"
   }
 
-  // Log order for debugging (in development)
+  // Log order for debugging in dev
   if (process.env.NODE_ENV === "development") {
     console.log("Order created:", order)
   }
-
-  // Store order in localStorage/session would be done client-side
-  // For server action, we'll just redirect to success page with order ID
   
   // Redirect to success page with order ID
   redirect(`/payment_success?order_id=${orderId}`)

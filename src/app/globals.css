@@ -8,3 +8,44 @@
 body {
   font-family: var(--font-geist-sans);
 }
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 640px) {
+  button, 
+  a,
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+body:has(dialog[open]) {
+  overflow: hidden;
+}
+
+* {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+input, textarea, select, button {
+  font-size: 16px;
+}
+
+@media (max-width: 640px) {
+  input, textarea, select, button {
+    font-size: 16px;
+  }
+}
