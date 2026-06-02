@@ -4,7 +4,7 @@ import Image from "next/image";
 import productsBG from "../../../public/cool-blue.jpg"
 
 // ===============
-// METADATA for Next.js App Router
+// METADATA
 // ===============
 export const metadata = {
   title: "Our Macaroon Flavors | Artisanal French Pastries | Macaroon Pâtisserie",
@@ -47,7 +47,6 @@ export default async function ProductsPage() {
 
             <h1 className="sr-only">Macaroon Pâtisserie Products</h1>
 
-            {/* Visible heading */}
             <div className="text-center mb-6">
                 <h2 
                     id="main-products-heading"

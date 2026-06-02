@@ -62,7 +62,7 @@ export const ProductData = ({ products }: ProductDataProps) => {
             aria-labelledby="products-heading"
             className="flex flex-col items-center justify-center px-4 pb-12"
         >
-            {/* Search Section */}
+            {/* Search */}
             <div className="w-full max-w-md mx-auto my-6 sm:my-8 md:my-10 px-4">
                 <div className="relative">
                     <label 
@@ -72,7 +72,6 @@ export const ProductData = ({ products }: ProductDataProps) => {
                         Search products by name or description
                     </label>
                     
-                    {/* Search Icon */}
                     <div className="absolute inset-y-0 left-0 pl-3 z-50 flex items-center pointer-events-none">
                         <svg className="h-5 w-5 text-gray-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />

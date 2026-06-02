@@ -1,7 +1,6 @@
 import Link from "next/link"
 import { Product } from "../_data/product-service"
 import Image from "next/image"
-import { getImagePath } from "@/lib/path";
 
 interface ProductCardProps {
     product: Product
@@ -30,7 +29,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
                         <div className="relative h-48 sm:h-56 md:h-60 w-full overflow-hidden bg-gray-200">
                             <Image 
                                 alt={product.name} 
-                                src={getImagePath("/product.images[0]")} 
+                                src={product.images[0]}
                                 fill
                                 sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                                 className="object-cover transition-transform duration-500 group-hover:scale-105"

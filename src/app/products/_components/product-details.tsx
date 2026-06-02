@@ -5,7 +5,6 @@ import Image from "next/image"
 import { useCartStore } from "@/store/cart-store"
 import { useEffect, useRef, useCallback, useState } from "react"
 import Link from "next/link"
-import { getImagePath } from "@/lib/path";
 
 interface ProductDetailProps {
     product: Product
@@ -74,7 +73,7 @@ export const ProductDetail = ({ product }: ProductDetailProps) => {
                             <div className="relative w-full aspect-square rounded-2xl overflow-hidden bg-gray-100 shadow-lg">
                                 <Image 
                                     alt={product.name} 
-                                    src={getImagePath("/product.images[0]")} 
+                                    src={product.images[0]}
                                     fill 
                                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                     className="object-cover transition duration-300 hover:scale-105"
