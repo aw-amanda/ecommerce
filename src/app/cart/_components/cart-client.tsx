@@ -85,8 +85,10 @@ const CartItemComponent = ({ item, onIncrement, onDecrement }: {
     if (imagePath.startsWith("/")) {
       return imagePath
     }
+
+    let path = imagePath.startsWith("/") ? imagePath : `/${imagePath}`
     
-    return `/products/${imagePath}`
+    return path
   }
 
   return (
