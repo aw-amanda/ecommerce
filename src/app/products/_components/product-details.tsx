@@ -78,6 +78,7 @@ export const ProductDetail = ({ product }: ProductDetailProps) => {
                                     className="object-cover transition duration-300 hover:scale-105"
                                     priority
                                     quality={90}
+                                    unoptimized // for static export
                                 />
                             </div>
                         </div>

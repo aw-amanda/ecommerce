@@ -108,6 +108,7 @@ const CartItemComponent = ({ item, onIncrement, onDecrement }: {
             fill
             className="object-cover"
             sizes="80px"
+            unoptimized // for static export
             onError={(e) => {
               const target = e.target as HTMLImageElement;
               target.src = "/placeholder-image.jpg";
