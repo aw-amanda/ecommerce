@@ -75,21 +75,28 @@ const CartItemComponent = ({ item, onIncrement, onDecrement }: {
 }) => {
   const itemTotal = (item.price * item.quantity).toFixed(2)
   
+    console.log("Cart item image path:", item.image)
+  
   const getImagePath = (imagePath: string | null): string => {
-    if (!imagePath) return "/placeholder-image.jpg"
 
-    if (imagePath.startsWith("http") || imagePath.startsWith("https")) {
-      return imagePath
-    }
-    
-    if (imagePath.startsWith("/")) {
-      return imagePath
-    }
-
-    let path = imagePath.startsWith("/") ? imagePath : `/${imagePath}`
-    
-    return path
+  if (!imagePath) return "/products/assortment-macaron.jpg"
+  
+  if (imagePath.startsWith("http")) {
+    return imagePath
   }
+
+  let cleanPath = imagePath.replace(/^\.\.?\//, '')
+
+  if (cleanPath.startsWith("products/")) {
+    return `/${cleanPath}`
+  }
+  
+  if (cleanPath.startsWith("/")) {
+    cleanPath = cleanPath.substring(1)
+  }
+  
+  return `/products/${cleanPath}`
+}
 
   return (
     <li className="flex flex-col sm:flex-row gap-4 border-b border-white/20 pb-4">
