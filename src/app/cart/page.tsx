@@ -1,19 +1,16 @@
 import Image from "next/image"
-import checkoutBG from "../../../public/mint-macaroon-bowl.jpg"
+import checkoutBG from "../../../public/mint-macaron-bowl.jpg"
 import { CartClient } from "./_components/cart-client"
 import { Suspense } from "react"
 
-// ===============
-// METADATA
-// ===============
 export const metadata = {
-  title: "Your Cart & Checkout | Macaroon Pâtisserie | Secure Ordering",
-  description: "Review your macaroon order, adjust quantities, and complete your purchase securely. Delivery available throughout Your City and surrounding areas. Pickup also available at our café location.",
-  keywords: "macaroon cart, checkout, order macaroons, buy macaroons online, your city delivery, macaroon payment, secure checkout",
+  title: "Your Cart & Checkout | Macaron Pâtisserie | Secure Ordering",
+  description: "Review your macaron order, adjust quantities, and complete your purchase securely. Delivery available throughout Your City and surrounding areas. Pickup also available at our café location.",
+  keywords: "macaron cart, checkout, order macarons, buy macarons online, your city delivery, Macaron payment, secure checkout",
   openGraph: {
-    title: "Your Cart | Macaroon Pâtisserie",
-    description: "Review and complete your macaroon order. Handcrafted French macaroons delivered to your door.",
-    images: [{ url: "/mint-macaroon-bowl.jpg" }],
+    title: "Your Cart | Macaron Pâtisserie",
+    description: "Review and complete your macaron order. Handcrafted french macarons delivered to your door.",
+    images: [{ url: "/mint-macaron-bowl.jpg" }],
     type: "website",
   },
   robots: "noindex, follow",
@@ -51,7 +48,6 @@ function CartSkeleton() {
 export default function CartPage() {
   return (
     <main className="min-h-screen pt-32 pb-12">
-      {/* Background Image */}
       <div 
         className="fixed inset-0 -z-10"
         aria-hidden="true"
@@ -67,7 +63,7 @@ export default function CartPage() {
         />
       </div>
 
-      {/* Page Header */}
+      {/* HEADER */}
       <div className="text-center mb-8">
         <h1 className="text-7xl md:text-9xl font-haviland-cursive text-cyan-200 text-shadow-lg mb-4 md:mb-8">
           Your Cart
@@ -81,18 +77,18 @@ export default function CartPage() {
         <CartClient />
       </Suspense>
 
-      {/* Structured Data for SEO */}
+      {/* STRUCTURED DATA */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "CheckoutPage",
-            "name": "Cart & Checkout | Macaroon Pâtisserie",
-            "description": "Complete your macaroon order securely.",
+            "name": "Cart & Checkout | Macaron Pâtisserie",
+            "description": "Complete your macaron order securely.",
             "mainEntity": {
               "@type": "Bakery",
-              "name": "Macaroon Pâtisserie",
+              "name": "Macaron Pâtisserie",
               "url": "https://yourdomain.com/cart",
               "acceptsReservations": "https://schema.org/True",
               "paymentAccepted": ["Credit Card", "Debit Card", "Apple Pay", "Google Pay"],

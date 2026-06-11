@@ -4,11 +4,11 @@ import { ContactForm } from "./_components/contact-form"
 import { Suspense } from "react"
 
 export const metadata = {
-  title: "Contact Macaroon Pâtisserie | Visit Us or Book Catering",
+  title: "Contact Macaron Pâtisserie | Visit Us or Book Catering",
   description: "Visit our pâtisserie in Your City, order delivery, or inquire about catering for weddings and events. Our team responds within 24 hours.",
-  keywords: "contact macaroon patisserie, your city bakery, macaroon catering, book delivery",
+  keywords: "contact macaron patisserie, your city bakery, macaron catering, book delivery",
   openGraph: {
-    title: "Contact Macaroon Pâtisserie",
+    title: "Contact Macaron Pâtisserie",
     description: "Reach out for questions, catering, or special orders.",
     images: [{ url: "/mac-cream-cone.jpg" }],
   },
@@ -65,16 +65,16 @@ export default function ContactPage() {
         </Suspense>
       </div>
 
-      {/* Schema */}
+      {/* SCHEMA */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Bakery",
-            "name": "Macaroon Pâtisserie",
-            "telephone": "+1555123MACAROON",
-            "email": "bonjour@macaroonpatisserie.com",
+            "name": "Macaron Pâtisserie",
+            "telephone": "+1555123Macaron",
+            "email": "bonjour@Macaronpatisserie.com",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "123 Main Street",

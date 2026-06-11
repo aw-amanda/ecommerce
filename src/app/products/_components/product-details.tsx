@@ -67,7 +67,6 @@ export const ProductDetail = ({ product }: ProductDetailProps) => {
 
             <article className="container mx-auto px-4 py-6 sm:py-8">
                 <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
-                    {/* Product Image */}
                     {product.images && product.images[0] && (
                         <div className="w-full lg:w-1/2">
                             <div className="relative w-full aspect-square rounded-2xl overflow-hidden bg-gray-100 shadow-lg">

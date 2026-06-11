@@ -35,7 +35,7 @@ export function ContactForm() {
     }
   }, [errors])
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.SubmitEvent) => {
     e.preventDefault()
     const validationErrors = validate(formData)
     

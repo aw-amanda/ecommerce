@@ -33,23 +33,23 @@ export const Footer = () => {
 
   const contactInfo = {
     address: "123 Main Street, Your City, US 12345",
-    phone: "(555) 123-MACAROON",
-    email: "bonjour@macaroonpatisserie.com",
+    phone: "(555) 123-MACARON",
+    email: "bonjour@macaronpatisserie.com",
   };
 
   return (
-    <footer className="w-full bg-gray-950/50 backdrop-blur-xl border-t border-white/10 mt-auto">
+    <footer className="w-full bg-gray-950/70 backdrop-blur-xl border-t border-white/10 mt-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
           
           <div className="text-center sm:text-left">
             <div className="flex justify-center sm:justify-start mb-4">
               <div className="relative w-12 h-12 bg-white rounded-full overflow-hidden shadow-md">
-                <Image src={Logo} alt="Macaroon Pâtisserie Logo" fill className="object-contain p-2" sizes="48px" />
+                <Image src={Logo} alt="Macaron Pâtisserie Logo" fill className="object-contain p-2" sizes="48px" />
               </div>
             </div>
-            <h3 className="font-haviland-cursive text-cyan-200 text-2xl mb-2">Macaroon Pâtisserie</h3>
-            <p className="text-gray-400 text-sm">Artisanal French macaroons made fresh daily in Your City.</p>
+            <h3 className="font-haviland-cursive text-cyan-200 text-2xl mb-2">Macaron Pâtisserie</h3>
+            <p className="text-gray-400 text-sm">Artisanal french macarons made fresh daily in Your City.</p>
           </div>
 
           <div className="text-center sm:text-left">
@@ -105,7 +105,7 @@ export const Footer = () => {
         </div>
 
         <div className="mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-3 text-center">
-          <p className="text-gray-500 text-xs sm:text-sm">© {currentYear} Macaroon Pâtisserie. All rights reserved.</p>
+          <p className="text-gray-500 text-xs sm:text-sm">© {currentYear} Macaron Pâtisserie. All rights reserved.</p>
           <div className="flex gap-6">
             <Link href="/privacy" className="text-gray-500 hover:text-cyan-400 text-xs sm:text-sm transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="text-gray-500 hover:text-cyan-400 text-xs sm:text-sm transition-colors">Terms of Service</Link>

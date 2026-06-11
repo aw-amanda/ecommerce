@@ -3,16 +3,13 @@ import { ProductData } from "./_data/product-data"
 import Image from "next/image";
 import productsBG from "../../../public/cool-blue.jpg"
 
-// ===============
-// METADATA
-// ===============
 export const metadata = {
-  title: "Our Macaroon Flavors | Artisanal French Pastries | Macaroon Pâtisserie",
-  description: "Explore our rotating selection of gourmet macaroon flavors. From classic vanilla and chocolate to seasonal specialties. Each macaroon handcrafted with premium ingredients.",
-  keywords: "macaroon flavors, french macarons, gourmet macaroons, artisanal pastries, macaroon varieties, seasonal macaroons",
+  title: "Our Macaron Flavors | Artisanal French Pastries | Macaron Pâtisserie",
+  description: "Explore our rotating selection of gourmet macaron flavors. From classic vanilla and chocolate to seasonal specialties. Each macaron handcrafted with premium ingredients.",
+  keywords: "macaron flavors, french macarons, gourmet macarons, artisanal pastries, macaron varieties, seasonal macarons",
   openGraph: {
-    title: "Our Macaroon Flavors | Macaroon Pâtisserie | Your City",
-    description: "Discover our exquisite collection of handcrafted macaroon flavors. Made fresh daily in Your City.",
+    title: "Our Macaron Flavors | Macaron Pâtisserie | Your City",
+    description: "Discover our exquisite collection of handcrafted macaron flavors. Made fresh daily in Your City.",
     images: [{ url: "/cool-blue.jpg" }],
     type: "website",
   },
@@ -45,7 +42,7 @@ export default async function ProductsPage() {
                 />
             </div>
 
-            <h1 className="sr-only">Macaroon Pâtisserie Products</h1>
+            <h1 className="sr-only">Macaron Pâtisserie Products</h1>
 
             <div className="text-center mb-6">
                 <h2 
@@ -53,14 +50,14 @@ export default async function ProductsPage() {
                     className="text-cyan-200 text-shadow-lg text-7xl md:text-9xl my-6 sm:my-8 font-haviland-cursive"
                     tabIndex={-1}
                 >
-                    Our Macaroons
+                    Our Macarons
                 </h2>
             </div>
 
             <div className="max-w-3xl mx-auto text-center mb-8 p-4 bg-transparent backdrop-blur-3xl rounded-2xl">
                 <p className="text-cyan-50 text-md md:text-lg">
-                    Each week, our pastry team creates thousands of perfect French macaroons in our Your City kitchen. 
-                    Every macaroon starts with premium almond flour, organic egg whites, and real butter—never artificial 
+                    Each week, our pastry team creates thousands of perfect french macarons in our Your City kitchen. 
+                    Every macaron starts with premium almond flour, organic egg whites, and real butter—never artificial 
                     flavors or preservatives. Browse our current flavor collection below. Note that seasonal specialties 
                     rotate throughout the year, so check back often for new discoveries!
                 </p>
@@ -78,15 +75,15 @@ export default async function ProductsPage() {
                 aria-labelledby="main-products-heading" 
             />
 
-            {/* Structured Data for SEO */}
+            {/* STRUCTURED DATA */}
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
                     __html: JSON.stringify({
                         "@context": "https://schema.org",
                         "@type": "ItemList",
-                        "name": "Macaroon Pâtisserie Products",
-                        "description": "Explore our rotating selection of gourmet macaroon flavors. From classic vanilla and chocolate to seasonal specialties.",
+                        "name": "Macaron Pâtisserie Products",
+                        "description": "Explore our rotating selection of gourmet macaron flavors. From classic vanilla and chocolate to seasonal specialties.",
                         "numberOfItems": products.length,
                         "itemListElement": products.slice(0, 10).map((product, index) => ({
                             "@type": "ListItem",
@@ -108,7 +105,7 @@ export default async function ProductsPage() {
                 }}
             />
 
-            {/* FAQ Schema */}
+            {/* FAQ SCHEMA */}
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
@@ -118,7 +115,7 @@ export default async function ProductsPage() {
                         "mainEntity": [
                             {
                                 "@type": "Question",
-                                "name": "Are your macaroons gluten-free?",
+                                "name": "Are your macarons gluten-free?",
                                 "acceptedAnswer": {
                                     "@type": "Answer",
                                     "text": "Yes! Traditional French macarons are naturally gluten-free since they're made with almond flour instead of wheat flour."
@@ -126,10 +123,10 @@ export default async function ProductsPage() {
                             },
                             {
                                 "@type": "Question",
-                                "name": "Do you offer vegan macaroons?",
+                                "name": "Do you offer vegan macarons?",
                                 "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "We offer a rotating selection of vegan macaroons made without eggs or dairy. Call ahead or check our online menu to see our current vegan options."
+                                    "text": "We offer a rotating selection of vegan macarons made without eggs or dairy. Call ahead or check our online menu to see our current vegan options."
                                 }
                             }
                         ]

@@ -5,7 +5,7 @@ import { useCartStore } from "@/store/cart-store"
 import { useEffect, useRef, Suspense } from "react"
 import { useSearchParams } from "next/navigation"
 import Image from "next/image"
-import successBG from "../../../public/mint-macaroon-bowl.jpg"
+import successBG from "../../../public/mint-macaron-bowl.jpg"
 
 function SuccessContent() {
   const { clearCart } = useCartStore()
@@ -26,7 +26,6 @@ function SuccessContent() {
       aria-live="polite"
       className="min-h-screen pt-32 pb-12 relative"
     >
-      {/* Background Image */}
       <div 
         className="fixed inset-0 -z-10"
         aria-hidden="true"
@@ -48,7 +47,6 @@ function SuccessContent() {
           aria-live="assertive"
           className="bg-gray-950/25 backdrop-blur-2xl rounded-2xl p-8 md:p-12 text-center"
         >
-          {/* Success Icon */}
           <div className="w-24 h-24 mx-auto mb-6 bg-green-500/20 rounded-full flex items-center justify-center">
             <svg className="w-12 h-12 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -103,7 +101,7 @@ function SuccessContent() {
         </p>
       </div>
 
-      {/* Structured Data for SEO */}
+      {/* STRUCTURED DATA */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -117,7 +115,7 @@ function SuccessContent() {
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Product",
-                "name": "Macaroon Assortment"
+                "name": "Macaron Assortment"
               }
             }
           })

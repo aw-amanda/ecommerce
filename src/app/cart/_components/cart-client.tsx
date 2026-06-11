@@ -5,7 +5,6 @@ import { useEffect, useRef, useState, useCallback, useMemo } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { mockCheckoutAction } from "./mock-checkout-action"
-import { getImagePath } from "@/lib/path";
 
 interface CartItem {
   id: string
@@ -76,16 +75,34 @@ const CartItemComponent = ({ item, onIncrement, onDecrement }: {
 }) => {
   const itemTotal = (item.price * item.quantity).toFixed(2)
   
+  const getImagePath = (imagePath: string | null): string => {
+    if (!imagePath) return "/placeholder-image.jpg"
+
+    if (imagePath.startsWith("http") || imagePath.startsWith("https")) {
+      return imagePath
+    }
+    
+    if (imagePath.startsWith("/")) {
+      return imagePath
+    }
+    
+    return `/products/${imagePath}`
+  }
+
   return (
     <li className="flex flex-col sm:flex-row gap-4 border-b border-white/20 pb-4">
       {item.image && (
         <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden shrink-0 bg-white/10">
           <Image
-            src={getImagePath("/item.image")}
+            src={getImagePath(item.image)}
             alt={item.name}
             fill
             className="object-cover"
             sizes="80px"
+            onError={(e) => {
+              const target = e.target as HTMLImageElement;
+              target.src = "/placeholder-image.jpg";
+            }}
           />
         </div>
       )}
@@ -118,7 +135,7 @@ function EmptyCart() {
         </h2>
         
         <p className="text-gray-300 mb-6 sm:mb-8 text-sm sm:text-base">
-          Looks like you haven't added any macaroons to your cart yet.
+          Looks like you haven't added any macarons to your cart yet.
           Explore our delicious collection and find your perfect treat.
         </p>
         
@@ -126,7 +143,7 @@ function EmptyCart() {
           href="/products"
           className="inline-block px-6 sm:px-8 py-2.5 sm:py-3 bg-cyan-500 hover:bg-cyan-600 text-white text-base sm:text-lg font-semibold rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2"
         >
-          Browse Our Macaroons
+          Browse Our Macarons
         </Link>
       </div>
     </div>
@@ -142,7 +159,7 @@ function ShippingAddressForm({ onSubmit }: { onSubmit: (data: any) => void }) {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.SubmitEvent) => {
     e.preventDefault()
     onSubmit(formData)
   }
@@ -203,7 +220,7 @@ function PaymentForm({ onSubmit, onBack, total, shippingOption }: {
   const [paymentMethod, setPaymentMethod] = useState("credit_card")
   const [isProcessing, setIsProcessing] = useState(false)
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.SubmitEvent) => {
     e.preventDefault()
     setIsProcessing(true)
     await new Promise(resolve => setTimeout(resolve, 1500))
@@ -351,7 +368,7 @@ export function CartClient() {
       <div ref={liveRegionRef} className="sr-only" aria-live="polite" aria-atomic="true"></div>
 
       <div className="flex flex-col lg:flex-row gap-8">
-        {/* Order Summary Section */}
+        {/* ORDER SUMMARY */}
         <div className="w-full">
           <div className="bg-gray-950/25 backdrop-blur-2xl rounded-2xl shadow-xl overflow-hidden">
             <div className="bg-cyan-500/20 px-4 sm:px-6 py-4 border-b border-white/20">
@@ -361,7 +378,7 @@ export function CartClient() {
             </div>
 
             <div className="p-4 sm:p-6">
-              {/* Cart Items */}
+              {/* CART ITEMS */}
               <ul className="space-y-4">
                 {items.map((item) => (
                   <CartItemComponent
@@ -373,7 +390,7 @@ export function CartClient() {
                 ))}
               </ul>
 
-              {/* Totals */}
+              {/* TOTALS */}
               <div className="mt-6 pt-4 border-t border-white/20">
                 <div className="space-y-2">
                   <div className="flex justify-between text-gray-300 text-sm sm:text-base">
@@ -393,7 +410,6 @@ export function CartClient() {
                 </div>
               </div>
 
-              {/* Action Buttons */}
               {checkoutStep === "cart" && (
                 <div className="mt-6 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-between">
                   <button onClick={handleClearCart} className="px-4 sm:px-6 py-2 bg-red-500/50 hover:bg-red-500/70 text-white rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-red-400 text-sm sm:text-base">
@@ -414,7 +430,7 @@ export function CartClient() {
           </div>
         </div>
 
-        {/* Checkout Form Section */}
+        {/* CHECKOUT FORM */}
         <div className="w-full lg:w-1/3">
           {checkoutStep === "shipping" && (
             <div className="bg-gray-950/25 backdrop-blur-2xl rounded-2xl shadow-xl overflow-hidden">

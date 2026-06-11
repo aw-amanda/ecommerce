@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: PageProps) {
   
   if (!product) {
     return {
-      title: "Product Not Found | Macaroon Pâtisserie",
+      title: "Product Not Found | Macaron Pâtisserie",
       description: "The requested product could not be found.",
     }
   }
@@ -23,11 +23,11 @@ export async function generateMetadata({ params }: PageProps) {
   const priceAmount = product.price ? `$${product.price.toFixed(2)}` : ''
   
   return {
-    title: `${product.name} | Macaroon Pâtisserie`,
-    description: product.description || `Shop ${product.name} at Macaroon Pâtisserie. Artisanal French macaroons made fresh daily.`,
+    title: `${product.name} | Macaron Pâtisserie`,
+    description: product.description || `Shop ${product.name} at Macaron Pâtisserie. Artisanal French macaroons made fresh daily.`,
     openGraph: {
-      title: `${product.name} | Macaroon Pâtisserie`,
-      description: product.description || `Shop ${product.name} at Macaroon Pâtisserie.`,
+      title: `${product.name} | Macaron Pâtisserie`,
+      description: product.description || `Shop ${product.name} at Macaron Pâtisserie.`,
       images: product.images?.[0] ? [{ url: product.images[0] }] : [],
     },
   }
@@ -76,11 +76,11 @@ export default async function ProductDetailPage({ params }: PageProps) {
                 "price": product.price,
                 "priceCurrency": "USD",
                 "availability": "https://schema.org/InStock",
-                "url": `https://yourdomain.com/products/${product.id}`
+                "url": `https://domain.com/products/${product.id}`
               },
               "brand": {
                 "@type": "Brand",
-                "name": "Macaroon Pâtisserie"
+                "name": "Macaron Pâtisserie"
               },
               "category": product.category
             })
