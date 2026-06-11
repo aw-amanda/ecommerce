@@ -1,6 +1,9 @@
 import { MetadataRoute } from 'next'
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3001'
+export const dynamic = 'force-static'
+export const revalidate = false
+
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://aw-amanda.github.io/ecommerce'
 
 export default function robots(): MetadataRoute.Robots {
   return {
