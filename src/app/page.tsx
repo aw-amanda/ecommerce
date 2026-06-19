@@ -1,5 +1,8 @@
-import Image from "next/image";
-import heroBG from "../../public/macaron-stacks.jpg";
+import Image from "next/image"
+import heroBG from "../../public/macaron-stacks.jpg"
+import Carousel from "@/components/carousel";
+import fs from 'fs';
+import path from 'path';
 import { 
   metadata, 
   viewport,
@@ -30,15 +33,28 @@ import {
   faqTitle,
   bakerySchema,
   serviceSchema
-} from "@/content/home";
+} from "@/content/home"
+import Link from "next/link";
 
-export { metadata, viewport };
+export { metadata, viewport }
 
 export default function Home() {
+  const productsDir = path.join(process.cwd(), 'public/products');
+  
+  let images: string[] = [];
+  try {
+    const files = fs.readdirSync(productsDir);
+    images = files
+      .filter((file) => file.endsWith('.jpg'))
+      .map((file) => `/products/${file}`);
+  } catch (error) {
+    console.error('Error reading products directory:', error);
+  }
+
   return (
     <main 
       id="home"
-      className="w-full min-h-screen pt-32 py-2 flex flex-col items-center justify-center"
+      className="w-full min-h-screen py-12 flex flex-col items-center justify-center gap-8 md:gap-12"
     >
       <h1 className="sr-only">{heroHeading1}</h1>
       <h2 className="sr-only">{heroHeading2}</h2>
@@ -51,7 +67,7 @@ export default function Home() {
           src={heroBG}
           alt={heroImageAlt}
           fill
-          className="object-cover opacity-85"
+          className="object-cover opacity-25"
           priority
           sizes="100vw"
           quality={85}
@@ -59,93 +75,98 @@ export default function Home() {
       </div>
 
       {/* HEADER */}
-      <div className="mb-20 p-2 md:p-6 bg-gray-300/30 backdrop-blur-lg border-none rounded-2xl shadow-2xl">
-        <header className="flex flex-col items-center text-center p-4">
-          <h2 className="mb-2 font-haviland-cursive text-cyan-200 text-7xl md:text-9xl text-shadow-lg">
+      <div className="w-[115vw]">
+        <header className="text-center">
+          <h1 className="font-haviland-cursive text-cyan-50 text-8xl md:text-9xl text-shadow-lg text-shadow-cyan-500/50">
             {headerTitle}
-          </h2>
-          <p className="text-gray-700 text-lg lg:text-xl">
+          </h1>
+          <div className="w-full h-80 md:w-xl my-10 mx-auto">
+            <Link
+              href="/products"
+            >
+              <Carousel images={images} />
+            </Link>  
+          </div>
+          <p className="text-gray-300 italic text-lg md:text-xl lg:text-2xl">
             {headerSubtitle}
           </p>
         </header>
       </div>
 
       {/* CONTENT */}
-      <div className="mb-20 flex flex-col items-center justify-center gap-5 max-w-4xl mx-auto p-2 md:p-6 bg-gray-300/30 backdrop-blur-3xl border-none rounded-2xl shadow-2xl">
-        <div className="text-2xl md:text-3xl font-medium text-cyan-200 text-shadow-lg text-center">
+      <div className="flex flex-col items-center justify-center w-full gap-8 md:gap-12 px-4 sm:px-6 md:px-8 lg:px-12 mt-16 md:mt-48">
+        <h2 className="text-3xl md:text-4xl text-shadow-lg text-center font-light fade-on-scroll text-transparent bg-clip-text bg-linear-to-br from-fuchsia-300 via-orange-200 to-green-200">
           {mainTitle}
-        </div>
+        </h2>
         
-        <div className="text-gray-900 text-md p-4 space-y-6">
-          <p className="text-gray-900 text-shadow-md">{introParagraph}</p>
+        <div className="text-gray-300 text-base p-4 space-y-6 md:space-y-12 max-w-6xl mx-auto fade-on-scroll">
+          <p className="text-shadow-lg">{introParagraph}</p>
 
-          <h3 className="text-xl md:text-2xl font-light text-cyan-100 text-shadow-lg mt-6">{whyChooseTitle}</h3>
-          <p className="text-gray-900 text-shadow-md">{whyChooseParagraph}</p>
+          <h3 className="text-2xl md:text-3xl font-extralight text-fuchsia-200 text-shadow-lg">
+            {whyChooseTitle}
+          </h3>
+          <p className="text-shadow-lg fade-on-scroll">{whyChooseParagraph}</p>
 
-          <ul className="grid grid-cols-2 md:grid-cols-3 gap-2 mt-4 mb-4">
+          <ul className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3 text-transparent bg-clip-text bg-linear-to-br from-yellow-200 via-green-200 to-violet-100">
             {benefits.map((benefit, idx) => (
-              <li key={idx} className="text-gray-900 text-shadow-md text-sm">✓ {benefit}</li>
+              <li key={idx} className="text-shadow-lg text-sm">✓ {benefit}</li>
             ))}
           </ul>
 
-          <h3 className="text-xl md:text-2xl font-light text-cyan-100 text-shadow-lg mt-6">{collectionsTitle}</h3>
-          <p className="text-gray-900 text-shadow-md">{collectionsParagraph}</p>
+          <h3 className="text-2xl md:text-3xl font-light text-shadow-lg mt-6 md:mt-12 text-violet-300">
+            {collectionsTitle}
+          </h3>
+          <p className="text-shadow-lg">{collectionsParagraph}</p>
 
-          <h3 className="text-xl md:text-2xl font-light text-cyan-100 text-shadow-lg mt-6">{servingTitle}</h3>
-          <p className="text-gray-900 text-shadow-md">{servingParagraph}</p>
+          <h3 className="text-2xl md:text-3xl font-light text-orange-200 text-shadow-lg mt-6">
+            {servingTitle}
+          </h3>
+          <p className="text-shadow-lg">{servingParagraph}</p>
 
-          <h3 className="text-xl md:text-2xl font-light text-cyan-100 text-shadow-lg mt-6">{artTitle}</h3>
-          <p className="text-gray-900 text-shadow-md">{artParagraph}</p>
-        </div>
-      </div>
+          <h3 className="text-2xl md:text-3xl font-light text-green-200 text-shadow-lg mt-6">{artTitle}</h3>
+          <p className="text-shadow-lg">{artParagraph}</p>
 
-      <div className="mb-20 w-full max-w-6xl mx-auto p-2 md:p-6 bg-gray-300/30 backdrop-blur-3xl border-none rounded-2xl shadow-2xl">
-        <h3 className="text-3xl font-medium text-cyan-200 text-shadow-lg text-center mb-4">
-          {ctaTitle}
-        </h3>
-        <p className="text-center text-gray-900 text-shadow-md">{ctaParagraph1}</p>
-        <p className="text-center text-gray-900 text-shadow-md mb-4 md:mb-8">{ctaParagraph2}</p>
-        
-        <h3 className="mb-6 text-xl md:text-2xl font-light text-cyan-100 text-shadow-lg text-center">
-          {flavorsSectionTitle}
-        </h3>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-          {flavors.map((flavor, idx) => (
-            <div key={idx} className="bg-cyan-100/30 rounded-lg p-2 text-center">
-              <span className="text-gray-900 text-shadow-md text-sm">{flavor}</span>
+          <div className="mt-12 md:mt-16">
+            <h3 className="text-2xl md:text-3xl text-shadow-lg font-light text-cyan-200">
+              {ctaTitle}
+            </h3>
+            <div className="space-y-6 mt-6">
+              <p className="text-shadow-lg">{ctaParagraph1}</p>
+              <p className="text-shadow-lg">{ctaParagraph2}</p>
             </div>
-          ))}
+          </div>
         </div>
       </div>
 
-      <div className="mb-20 w-full max-w-6xl mx-auto p-2 md:p-6 bg-gray-300/30 backdrop-blur-3xl border-none rounded-2xl shadow-2xl">
-        <h3 className="mb-6 text-3xl font-medium text-cyan-200 text-shadow-lg text-center">
+      <div className="w-full max-w-6xl mx-auto my-6 md:my-12 px-4 fade-on-scroll space-y-6 md:space-y-12">
+        <h2 className="text-3xl md:text-4xl text-shadow-lg text-center font-light text-transparent bg-clip-text bg-linear-to-br from-emerald-200 via-indigo-200 to-yellow-100">
           {testimonialsTitle}
-        </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           {testimonials.map((testimonial, idx) => (
-            <div key={idx} className="bg-cyan-200/40 rounded-xl p-5">
+            <div key={idx} className="p-4 bg-linear-to-br from-orange-300/20 via-purple-400/20 to-yellow-200/20 backdrop-blur-2xl rounded-2xl shadow-xl">
               <div className="flex gap-1 mb-3">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <span key={i} className="text-yellow-400 text-lg">★</span>
+                  <span key={i} className="text-yellow-400 text-base sm:text-lg text-shadow-lg">★</span>
                 ))}
               </div>
-              <p className="text-gray-800 text-shadow-md italic mb-3">"{testimonial.text}"</p>
-              <p className="font-semibold text-cyan-200 text-shadow-md">— {testimonial.author}</p>
+              <p className="text-gray-300 text-shadow-md italic text-sm sm:text-base mb-3">"{testimonial.text}"</p>
+              <p className="font-extralight text-cyan-200 text-shadow-md text-sm sm:text-base">— {testimonial.author}</p>
             </div>
           ))}
         </div>
       </div>
 
-      <div className="mb-20 w-full max-w-4xl mx-auto p-2 md:p-6 bg-gray-300/30 backdrop-blur-3xl border-none rounded-2xl shadow-2xl">
-        <h3 className="mb-6 text-3xl font-medium text-cyan-200 text-shadow-lg text-center">
+      {/* FAQ */}
+      <div className="w-full max-w-6xl mx-auto my-6 md:my-12 px-8 fade-on-scroll space-y-6 md:space-y-12">
+        <h2 className="text-3xl md:text-4xl text-shadow-lg text-center font-light text-transparent bg-clip-text bg-linear-to-br from-lime-300 via-indigo-200 to-cyan-300">
           {faqTitle}
-        </h3>
-        <div className="space-y-6">
+        </h2>
+        <div className="space-y-6 md:space-y-8">
           {faqs.map((faq, idx) => (
             <div key={idx} className="border-b border-gray-200/50 pb-4">
-              <h4 className="text-xl font-medium text-cyan-100 text-shadow-lg mb-2">{faq.question}</h4>
-              <p className="font-geist-sans text-gray-900 text-shadow-md">{faq.answer}</p>
+              <h4 className="text-lg font-light text-emerald-200 text-shadow-lg mb-2">{faq.question}</h4>
+              <p className="text-gray-100 text-shadow-lg text-sm md:text-base">{faq.answer}</p>
             </div>
           ))}
         </div>
@@ -166,5 +187,5 @@ export default function Home() {
         }}
       />
     </main>
-  );
+  )
 }

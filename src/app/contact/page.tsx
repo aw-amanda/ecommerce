@@ -47,13 +47,12 @@ export default function ContactPage() {
 
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-8">
-          <h1 className="text-6xl md:text-9xl font-haviland-cursive text-cyan-200 mb-4 text-shadow-lg">Contact Us</h1>
-          <p className="text-gray-200 text-lg max-w-2xl mx-auto">
+          <h1 className="text-8xl md:text-9xl font-haviland-cursive text-cyan-200 mb-4 text-shadow-lg">Contact Us</h1>
+          <p className="text-gray-200 text-base max-w-2xl mx-auto">
             Have questions? We'd love to hear from you.
           </p>
         </div>
 
-        {/* Hours */}
         <div className="bg-black/50 backdrop-blur-sm rounded-xl p-3 text-center max-w-md mx-auto mb-8">
           <p className="text-gray-300 text-sm">
             <span className="text-cyan-400">Open:</span> Tue-Sun 9am-7pm | <span className="text-cyan-400">Closed:</span> Mon

@@ -50,7 +50,7 @@ export const Navbar = () => {
                 className="w-full fixed top-0 left-0 z-50 bg-gray-950/70 backdrop-blur-xl"
                 aria-label="Main navigation"
             >
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-7xl mx-8">
                     <div className="flex items-center justify-between h-20">
                         {/* LOGO */}
                         <div className="shrink-0">
@@ -91,7 +91,7 @@ export const Navbar = () => {
                         </div>
 
                         {/* MOBILE MENU BUTTON */}
-                        <div className="md:hidden">
+                        <div className="md:hidden px-2">
                             <button
                                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                                 className="relative w-10 h-10 rounded-lg bg-cyan-500/20 hover:bg-cyan-500/30 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-400"
@@ -119,7 +119,7 @@ export const Navbar = () => {
             {/* MOBILE NAVIGATION MENU */}
             <div
                 id="mobile-menu"
-                className={`fixed inset-0 z-40 bg-gray-950/95 backdrop-blur-xl transform transition-transform duration-300 ease-in-out md:hidden ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}
+                className={`fixed inset-0 z-40 bg-linear-to-br from-orange-900/90 via-cyan-900/90 to-purple-900/90 backdrop-blur-3xl transform transition-transform duration-500 ease-in-out md:hidden ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}
                 aria-hidden={!isMobileMenuOpen}
                 style={{ top: "5rem" }}
             >
@@ -131,7 +131,7 @@ export const Navbar = () => {
                                 key={item.href}
                                 href={item.href}
                                 onClick={() => setIsMobileMenuOpen(false)}
-                                className={`text-2xl transition-all duration-200 ${isActive ? "text-cyan-400 font-medium border-cyan-400" : "font-light text-gray-300"}`}
+                                className={`text-2xl transition-all duration-200 ${isActive ? "text-cyan-400" : "font-light text-gray-300"}`}
                                 aria-current={isActive ? "page" : undefined}
                             >
                                 {item.title}

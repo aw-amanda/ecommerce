@@ -120,7 +120,7 @@ export const servingParagraph = "Finding exceptional french macarons in Your Cit
 export const artTitle = "The Art of Macaron-Making";
 export const artParagraph = "Creating the perfect macaron is both science and art. Our time-tested process ensures consistency, beauty, and unforgettable flavor in every single piece we create.";
 
-export const ctaTitle = "Ready to Indulge in the Finest Macarons Your City Has to Offer?";
+export const ctaTitle = "Indulge in the Finest Macarons Your City Has to Offer";
 export const ctaParagraph1 = "Don't wait to experience the finest french macarons Your City has to offer. Whether you're stopping by our café, ordering delivery, or planning catering for a special event, our team is ready to make your macaron dreams come true.";
 export const ctaParagraph2 = "Stop by Tuesday through Sunday, order online for delivery throughout Your City, or contact our catering team to make your next event unforgettable.";
 export const flavorsSectionTitle = "Our Signature Macaron Flavors";

@@ -40,7 +40,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-gray-900">
         <Navbar />
         <LenisProvider>
-          <main className="grow container mx-auto px-2 py-4 md:px-4 md:py-8">
+          <main className="grow pt-32">
             {children}
           </main>
         </LenisProvider>

@@ -63,13 +63,12 @@ export default function CartPage() {
         />
       </div>
 
-      {/* HEADER */}
       <div className="text-center mb-8">
         <h1 className="text-7xl md:text-9xl font-haviland-cursive text-cyan-200 text-shadow-lg mb-4 md:mb-8">
           Your Cart
         </h1>
-        <p className="text-cyan-50 text-lg max-w-2xl mx-auto px-4 text-shadow-lg">
-          Review your selection, adjust quantities, and complete your order
+        <p className="text-cyan-50 text-base max-w-2xl mx-auto px-4 text-shadow-lg">
+          Review your selection, adjust quantities, and complete your order.
         </p>
       </div>
 
