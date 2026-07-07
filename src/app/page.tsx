@@ -80,14 +80,14 @@ export default function Home() {
           <h1 className="font-haviland-cursive text-cyan-50 text-8xl md:text-9xl text-shadow-lg text-shadow-cyan-500/50">
             {headerTitle}
           </h1>
-          <div className="w-full h-80 md:w-xl my-10 mx-auto">
+          <div className="w-full h-80 md:w-xl my-10 mx-auto rounded-2xl shadow-lg shadow-gray-50/50">
             <Link
               href="/products"
             >
               <Carousel images={images} />
             </Link>  
           </div>
-          <p className="text-gray-300 italic text-lg md:text-xl lg:text-2xl">
+          <p className="text-gray-200 text-shadow-md text-shadow-gray-50/50 font-haviland-cursive text-4xl md:text-6xl xl:text-8xl">
             {headerSubtitle}
           </p>
         </header>
@@ -95,38 +95,44 @@ export default function Home() {
 
       {/* CONTENT */}
       <div className="flex flex-col items-center justify-center w-full gap-8 md:gap-12 px-4 sm:px-6 md:px-8 lg:px-12 mt-16 md:mt-48">
-        <h2 className="text-3xl md:text-4xl text-shadow-lg text-center font-light fade-on-scroll text-transparent bg-clip-text bg-linear-to-br from-fuchsia-300 via-orange-200 to-green-200">
+        <h2 className="text-3xl md:text-4xl text-shadow-lg text-shadow-gray-800/20 text-center font-light fade-on-scroll text-transparent bg-clip-text bg-linear-to-br from-fuchsia-300 via-orange-200 to-green-200">
           {mainTitle}
         </h2>
         
-        <div className="text-gray-300 text-base p-4 space-y-6 md:space-y-12 max-w-6xl mx-auto fade-on-scroll">
-          <p className="text-shadow-lg">{introParagraph}</p>
+        <div className="text-gray-300 text-base p-4 max-w-6xl mx-auto bg-linear-to-br from-orange-300/20 via-purple-400/20 to-yellow-200/20 backdrop-blur-md rounded-2xl">
+          <p className="text-shadow-lg mb-6 md:mb-12">{introParagraph}</p>
 
-          <h3 className="text-2xl md:text-3xl font-extralight text-fuchsia-200 text-shadow-lg">
-            {whyChooseTitle}
-          </h3>
-          <p className="text-shadow-lg fade-on-scroll">{whyChooseParagraph}</p>
+          <div className="mb-6 md:mb-12 fade-on-scroll space-y-3">
+            <h3 className="text-2xl md:text-3xl mb-2 md:mb-4 font-extralight text-fuchsia-200 text-shadow-lg text-shadow-gray-800/50">
+              {whyChooseTitle}
+            </h3>
+            <p className="text-shadow-lg mb-2 md:mb-4">{whyChooseParagraph}</p>
 
-          <ul className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3 text-transparent bg-clip-text bg-linear-to-br from-yellow-200 via-green-200 to-violet-100">
-            {benefits.map((benefit, idx) => (
-              <li key={idx} className="text-shadow-lg text-sm">✓ {benefit}</li>
-            ))}
-          </ul>
+            <ul className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3 mb-4 text-transparent bg-clip-text bg-linear-to-br from-yellow-200 via-green-200 to-violet-100">
+              {benefits.map((benefit, idx) => (
+                <li key={idx} className="text-shadow-lg text-sm">✓ {benefit}</li>
+              ))}
+            </ul>
+          </div>
 
-          <h3 className="text-2xl md:text-3xl font-light text-shadow-lg mt-6 md:mt-12 text-violet-300">
-            {collectionsTitle}
-          </h3>
-          <p className="text-shadow-lg">{collectionsParagraph}</p>
+          <div className="mb-6 md:mb-12 fade-on-scroll space-y-3">
+            <h3 className="text-xl md:text-2xl font-light text-shadow-lg text-violet-300">
+              {collectionsTitle}
+            </h3>
+            <p className="text-shadow-lg">{collectionsParagraph}</p>
+          </div>
 
-          <h3 className="text-2xl md:text-3xl font-light text-orange-200 text-shadow-lg mt-6">
-            {servingTitle}
-          </h3>
-          <p className="text-shadow-lg">{servingParagraph}</p>
+          <div className="mb-6 md:mb-12 fade-on-scroll space-y-3">
+            <h3 className="text-2xl md:text-3xl font-light text-orange-200 text-shadow-lg mt-6">
+              {servingTitle}
+            </h3>
+            <p className="text-shadow-lg">{servingParagraph}</p>
 
-          <h3 className="text-2xl md:text-3xl font-light text-green-200 text-shadow-lg mt-6">{artTitle}</h3>
-          <p className="text-shadow-lg">{artParagraph}</p>
+            <h3 className="text-2xl md:text-3xl font-light text-green-200 text-shadow-lg mt-6">{artTitle}</h3>
+            <p className="text-shadow-lg">{artParagraph}</p>
+          </div>
 
-          <div className="mt-12 md:mt-16">
+          <div className="mb-6 md:mb-12 fade-on-scroll space-y-3">
             <h3 className="text-2xl md:text-3xl text-shadow-lg font-light text-cyan-200">
               {ctaTitle}
             </h3>
@@ -139,7 +145,7 @@ export default function Home() {
       </div>
 
       <div className="w-full max-w-6xl mx-auto my-6 md:my-12 px-4 fade-on-scroll space-y-6 md:space-y-12">
-        <h2 className="text-3xl md:text-4xl text-shadow-lg text-center font-light text-transparent bg-clip-text bg-linear-to-br from-emerald-200 via-indigo-200 to-yellow-100">
+        <h2 className="text-3xl md:text-4xl text-shadow-lg text-shadow-gray-800/20 text-center font-light text-transparent bg-clip-text bg-linear-to-br from-emerald-200 via-indigo-200 to-yellow-100">
           {testimonialsTitle}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
@@ -158,8 +164,8 @@ export default function Home() {
       </div>
 
       {/* FAQ */}
-      <div className="w-full max-w-6xl mx-auto my-6 md:my-12 px-8 fade-on-scroll space-y-6 md:space-y-12">
-        <h2 className="text-3xl md:text-4xl text-shadow-lg text-center font-light text-transparent bg-clip-text bg-linear-to-br from-lime-300 via-indigo-200 to-cyan-300">
+      <div className="p-4 max-w-6xl mx-auto bg-linear-to-br from-orange-300/20 via-purple-400/20 to-yellow-200/20 backdrop-blur-md rounded-2xl">
+        <h2 className="text-3xl md:text-4xl text-shadow-lg text-shadow-gray-800/20 text-center font-light text-transparent bg-clip-text bg-linear-to-br from-lime-300 via-indigo-200 to-cyan-300">
           {faqTitle}
         </h2>
         <div className="space-y-6 md:space-y-8">

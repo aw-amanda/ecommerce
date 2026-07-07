@@ -100,7 +100,7 @@ const CartItemComponent = ({ item, onIncrement, onDecrement }: {
 
   return (
     <li className="flex flex-col sm:flex-row gap-4 border-b border-white/20 pb-4">
-      {item.image && (
+      {/* {item.image && (
         <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden shrink-0 bg-white/10">
           <Image
             src={getImagePath(item.image)}
@@ -115,7 +115,7 @@ const CartItemComponent = ({ item, onIncrement, onDecrement }: {
             }}
           />
         </div>
-      )}
+      )} */}
       
       <div className="flex-1 flex flex-col sm:flex-row justify-between gap-3 sm:gap-4">
         <div className="flex-1">

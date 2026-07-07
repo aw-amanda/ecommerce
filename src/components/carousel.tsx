@@ -37,7 +37,7 @@ export default function Carousel({ images, interval = 5000 }: CarouselProps) {
 
     return (
         <div
-            className="relative w-full h-full overflow-hidden rounded-2xl shadow-2xl"
+            className="relative w-full h-full overflow-hidden rounded-2xl"
             role="region"
             aria-label="Image Carousel"
             aria-roledescription="carousel"

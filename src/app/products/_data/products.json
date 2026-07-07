@@ -136,7 +136,7 @@
       "description": "Authentic Sicilian pistachio paste blended into our French buttercream. Nutty, earthy, and wonderfully aromatic. A true pistachio lover's dream.",
       "price": 4.00,
       "priceId": "price_pistachio",
-      "images": ["/products/pistachio-macaron.png"],
+      "images": ["/products/pistachio-macaron.jpg"],
       "category": "nut",
       "inStock": true,
       "flavorNotes": ["Pistachio", "Nutty", "Earthy", "Sicilian"],
