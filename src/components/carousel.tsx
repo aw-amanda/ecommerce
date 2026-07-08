@@ -1,4 +1,3 @@
-// components/carousel.tsx
 "use client";
 
 import Image from "next/image";
@@ -33,6 +32,22 @@ export default function Carousel({ images, interval = 5000 }: CarouselProps) {
 
     if (!images || images.length === 0) {
         return <div className="w-full h-full bg-gray-400" aria-label="No images available" />
+    }
+
+    const getImagePath = (src: string) => {
+        if (src.startsWith('http://') || src.startsWith('https://')) {
+            return src;
+        }
+        
+        if (src.startsWith('/ecommerce/') || src.startsWith('./')) {
+            return src;
+        }
+        
+        if (process.env.NODE_ENV === 'production') {
+            return `/ecommerce/${src}`;
+        }
+
+        return `/${src}`
     }
 
     return (
