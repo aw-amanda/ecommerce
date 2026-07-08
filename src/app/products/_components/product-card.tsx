@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Product } from "../_data/product-service"
-import Image from "next/image"
+import CustomImage from "@/components/custom-images"
 
 interface ProductCardProps {
     product: Product
@@ -27,7 +27,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
                 <div className={cardClasses}>
                     {product.images && product.images[0] && (
                         <div className="relative h-48 sm:h-56 md:h-60 w-full overflow-hidden bg-gray-200">
-                            <Image 
+                            <CustomImage 
                                 alt={product.name} 
                                 src={product.images[0]}
                                 fill

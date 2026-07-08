@@ -6,7 +6,6 @@ import path from 'path';
 import { 
   metadata, 
   viewport,
-  flavors, 
   testimonials, 
   faqs, 
   benefits,
@@ -46,7 +45,7 @@ export default function Home() {
     const files = fs.readdirSync(productsDir);
     images = files
       .filter((file) => file.endsWith('.jpg'))
-      .map((file) => `/products/${file}`);
+      .map((file) => `products/${file}`);
   } catch (error) {
     console.error('Error reading products directory:', error);
   }

@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import CustomImage from "./custom-images";
 import { useEffect, useRef, useState } from "react";
 
 interface CarouselProps {
@@ -74,7 +74,7 @@ export default function Carousel({ images, interval = 5000 }: CarouselProps) {
                         aria-label={`Slide ${index + 1} of ${images.length}`}
                         aria-hidden={index !== currentIndex}
                     >
-                        <Image
+                        <CustomImage
                             src={src}
                             alt={`Product image ${index + 1}`}
                             fill

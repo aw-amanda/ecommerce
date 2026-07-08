@@ -1,7 +1,7 @@
 "use client"
 
 import { Product } from "../_data/product-service"
-import Image from "next/image"
+import CustomImage from "@/components/custom-images"
 import { useCartStore } from "@/store/cart-store"
 import { useEffect, useRef, useCallback, useState } from "react"
 import Link from "next/link"
@@ -70,7 +70,7 @@ export const ProductDetail = ({ product }: ProductDetailProps) => {
                     {product.images && product.images[0] && (
                         <div className="w-full lg:w-1/2">
                             <div className="relative w-full aspect-square rounded-2xl overflow-hidden bg-gray-100 shadow-lg">
-                                <Image 
+                                <CustomImage 
                                     alt={product.name} 
                                     src={product.images[0]}
                                     fill 
