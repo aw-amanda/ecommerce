@@ -163,10 +163,10 @@ export default function Home() {
       </div>
 
       {/* FAQ */}
+      <h2 className="text-3xl md:text-4xl text-shadow-lg text-shadow-gray-800/20 text-center font-light text-transparent bg-clip-text bg-linear-to-br from-lime-300 via-indigo-200 to-cyan-300">
+        {faqTitle}
+      </h2>
       <div className="p-4 max-w-6xl mx-auto bg-linear-to-br from-orange-300/20 via-purple-400/20 to-yellow-200/20 backdrop-blur-md rounded-2xl">
-        <h2 className="text-3xl md:text-4xl text-shadow-lg text-shadow-gray-800/20 text-center font-light text-transparent bg-clip-text bg-linear-to-br from-lime-300 via-indigo-200 to-cyan-300">
-          {faqTitle}
-        </h2>
         <div className="space-y-6 md:space-y-8">
           {faqs.map((faq, idx) => (
             <div key={idx} className="border-b border-gray-200/50 pb-4">
